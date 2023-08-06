@@ -20,6 +20,28 @@ List of framework/platform/dependent components this project uses.
 * Data Cache: `Redis Data Cache`
 * Database: `MariaDb`
 
+### Libraries
+* [Official Apache Maven documentation](https://maven.apache.org/guides/index.html)
+* [Spring Boot Maven Plugin Reference Guide](https://docs.spring.io/spring-boot/docs/3.1.2/maven-plugin/reference/html/)
+* [Create an OCI image](https://docs.spring.io/spring-boot/docs/3.1.2/maven-plugin/reference/html/#build-image)
+* [Spring Boot Actuator](https://docs.spring.io/spring-boot/docs/3.1.2/reference/htmlsinge/index.html#actuator)
+* [Spring Reactive Web](https://docs.spring.io/spring-boot/docs/3.1.2/reference/htmlsinge/index.html#web.reactive)
+* [OAuth2 Authorization Server](https://docs.spring.io/spring-boot/docs/3.1.2/reference/htmlsinge/index.html#web.security.oauth2.authorization-server)
+* [Thymeleaf](https://docs.spring.io/spring-boot/docs/3.1.2/reference/htmlsinge/index.html#web.servlet.spring-mvc.template-engines)
+* [Java Mail Sender](https://docs.spring.io/spring-boot/docs/3.1.2/reference/htmlsinge/index.html#io.email)
+* [Spring Data R2DBC](https://docs.spring.io/spring-boot/docs/3.1.2/reference/htmlsinge/index.html#data.sql.r2dbc)
+* [Spring Data Reactive Redis](https://docs.spring.io/spring-boot/docs/3.1.2/reference/htmlsinge/index.html#data.nosql.redis)
+* [Prometheus](https://docs.spring.io/spring-boot/docs/3.1.2/reference/htmlsinge/index.html#actuator.metrics.export.prometheus)
+* [Validation](https://docs.spring.io/spring-boot/docs/3.1.2/reference/htmlsinge/index.html#io.validation)
+* [Spring Security](https://docs.spring.io/spring-boot/docs/3.1.2/reference/htmlsinge/index.html#web.security)
+* [Spring Data JPA](https://docs.spring.io/spring-boot/docs/3.1.2/reference/htmlsinge/index.html#data.sql.jpa-and-spring-data)
+* [Liquibase](https://contribute.liquibase.com/extensions-integrations/directory/integration-docs/springboot/springboot/)
+* [AeroGear](https://github.com/aerogear-attic/aerogear-otp-java)
+* [Java Passay](https://www.baeldung.com/java-passay)
+* [Google Guava](https://github.com/google/guava/wiki)
+* [Uap Java](https://github.com/ua-parser/uap-java)
+* [GeoIp](https://dev.maxmind.com/geoip/docs/databases)
+
 ### Logging
 - For local deployment, it is available on STDOUT using the format configured in [logback.spring.xml](src/main/resources/logback.spring.xml)
 - For remote deployment, it is available on New Relic using the format configured in [logback.spring.xml](src/main/resources/logback.spring.xml).
