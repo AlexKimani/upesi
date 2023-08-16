@@ -1,0 +1,71 @@
+server:
+  port: 9000
+  servlet:
+    context-path: /v1
+  undertow:
+    buffer-size: 1024
+    direct-buffers: true
+    threads:
+      io: 1000
+      worker: 5000
+spring:
+  application:
+    name: auth-server
+  jpa:
+    database-platform: org.hibernate.dialect.MariaDB103Dialect
+    r2dbc:
+      url: r2dbc:tc:mariadb:///test?TC_IMAGE_TAG=10.5.5
+      username: test
+      password: test
+      pool:
+        enabled: true
+        initial-size: 10
+        min-idle: 3
+        max-size: 20
+        validation-depth: local
+        validation-query: SELECT 1
+        max-idle-time: 3m
+
+    datasource:
+      url: r2dbc:tc:mariadb:///test?TC_IMAGE_TAG=10.5.5
+      driverClassName: org.mariadb.jdbc.Driver
+      username: test
+      password: test
+
+    liquibase:
+      change-log: db/migration/db-changelog.yaml
+      default-schema: test
+      user: test
+      password: test
+      parameters:
+        textColumnType: TEXT
+      url: jdbc:mariadb://localhost:51420/test
+    sql:
+      init:
+        mode: always
+        continue-on-error: false
+    cloud:
+      config:
+        enabled: false
+    data:
+      redis:
+        host: ${REDIS_HOST:127.0.0.1}
+        port: ${REDIS_PORT:6379}
+        password: ${REDIS_PASSWORD:eYVX7EwVmmxKPCDmwMtyKVge8oLd2t81}
+    cache:
+      type: redis
+
+  logging:
+    level:
+      "com.upesi": ${LOG_LEVEL:DEBUG}
+      "liquibase": info
+    file:
+      path: ${LOG_PATH:/tmp/auth-service/}
+
+  management:
+    endpoint:
+      health:
+        enabled: true
+
+  security:
+    hash: ${HASH_FUNCTION:SHA3-256}
