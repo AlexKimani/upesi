@@ -4,7 +4,7 @@ RUN mkdir -p /var/log/
 RUN chmod a+rwx -R /var/log/
 COPY upesi-auth-server/src /usr/src/app/src
 COPY upesi-auth-server/pom.xml /usr/src/app
-RUN --mount=type=cache,target=/root/.m2,rw mvn dependency:go-offline -f /usr/src/app/pom.xml clean package
+RUN --mount=type=cache,target=/root/.m2,rw mvn dependency:go-offline -f /usr/src/app/pom.xml -Dmaven.test.skip clean package
 
 # Create the run target service
 FROM openjdk:17.0.1-jdk-slim
