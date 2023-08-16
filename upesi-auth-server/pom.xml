@@ -18,6 +18,7 @@
         <mariadb.version>1.1.3</mariadb.version>
         <mariadb.java.client.version>3.1.4</mariadb.java.client.version>
         <hibernate.reactive.version>2.0.1.Final</hibernate.reactive.version>
+        <liquibase.version>4.20.0</liquibase.version>
         <aerogear.version>1.0.0</aerogear.version>
         <passay.version>1.0</passay.version>
         <guava.version>32.1.2-jre</guava.version>
@@ -84,6 +85,27 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-webflux</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-logging</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-tomcat</artifactId>
+                </exclusion>
+                <!-- CVE-2022-1471 - SnakeYaml's Constructor() class does not restrict types which can be instantiated during deserialization.
+                Deserializing yaml content provided by an attacker can lead to remote code execution.
+                We recommend using SnakeYaml's SafeConstructor when parsing untrusted content to restrict deserialization.  -->
+                <exclusion>
+                    <groupId>org.yaml</groupId>
+                    <artifactId>snakeyaml</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-undertow</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -92,6 +114,17 @@
         <dependency>
             <groupId>org.thymeleaf.extras</groupId>
             <artifactId>thymeleaf-extras-springsecurity6</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.liquibase</groupId>
+            <artifactId>liquibase-core</artifactId>
+            <version>${liquibase.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.yaml</groupId>
+                    <artifactId>snakeyaml</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.yaml</groupId>

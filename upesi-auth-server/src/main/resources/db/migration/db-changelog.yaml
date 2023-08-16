@@ -1,0 +1,19 @@
+databaseChangeLog:
+  - include:
+      file: db/migration/changes/init.sql
+  - include:
+      file: db/migration/changes/tbl_privilege.sql
+  - include:
+      file: db/migration/changes/tbl_user_account.sql
+  - include:
+      file: db/migration/changes/tbl_role.sql
+  - include:
+      file: db/migration/changes/tbl_device_metadata.sql
+  - include:
+      file: db/migration/changes/tbl_user_location.sql
+  - include:
+      file: db/migration/changes/tbl_verification_token.sql
+  - include:
+      file: db/migration/changes/tbl_password_reset_token.sql
+  - include:
+      file: db/migration/changes/tbl_new_location_token.sql
