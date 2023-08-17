@@ -58,6 +58,13 @@ spring:
   cache:
     type: redis
 
+google:
+  recaptcha:
+    key:
+      site: 6LefKOAUAAAAAE9c8M_Das3vwhlMPmkFTAzvxokN
+      secret: 6LefKOAUAAAAAGs0hOsCoOBu14TKDGu100LkpnVo
+      threshold: 0.5
+
 logging:
   level:
     "com.upesi": ${LOG_LEVEL:DEBUG}
